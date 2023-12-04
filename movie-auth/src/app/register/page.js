@@ -1,10 +1,12 @@
-'use client';
+"use client";
 import { useState } from "react";
+
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false); // State to track if the message is an error
+
   const registerUser = async (e) => {
     e.preventDefault();
     setIsError(false); // Reset error state on new submission
@@ -13,20 +15,23 @@ export default function Register() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
+
     const data = await response.json();
+
     // Set the message and error state based on the response
     setMessage(data.message);
     if (!response.ok) {
       setIsError(true);
     }
   };
+
   return (
-    <main>
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Register your account
         </h2>
+
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <form
             className="space-y-6 bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10"
@@ -50,6 +55,7 @@ export default function Register() {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               />
             </div>
+
             <div>
               <label
                 htmlFor="password"
@@ -68,6 +74,7 @@ export default function Register() {
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               />
             </div>
+
             <div>
               <button
                 type="submit"
@@ -76,6 +83,7 @@ export default function Register() {
                 Register
               </button>
             </div>
+
             {/* Display the message */}
             {message && (
               <div
@@ -90,6 +98,5 @@ export default function Register() {
         </div>
       </div>
     </>
-    </main>
   );
 }

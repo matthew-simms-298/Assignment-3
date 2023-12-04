@@ -5,14 +5,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, install the dependencies if you haven't already:
 ```bash
 ```bash
-npm install
-# or 
-yarn install
 
-# then install next-auth
-npm install next-auth
-# or
-yarn install next-auth
+    1. Install react/node with `npm install`
+    2. Install next-auth with `npm install next-auth`
+    3A. Install prsim with `npm install prisma`
+    3B. Install `npm install @prisma/client`
+    4. Install `npm add bcrypt`
+    5. Install `npm add @next-auth/prisma-adapter
+
 ```
 Second, run the development server:
 ```bash
