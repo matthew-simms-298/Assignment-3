@@ -12,7 +12,7 @@ export default function Header() {
                 <div className="flex flex-row bg-white dark:bg-gray-800 dark:text-white text-slate-900 py-5 px-3">
                     <div>
                         <a href="/" className="px-3 mr-2 p-3
-                        rounded hover:bg-blue-400 dark:hover:bg-blue-700">IMR Home</a>
+                        rounded hover:bg-blue-400 dark:hover:bg-blue-700">Internet Movies Rental Home</a>
                     </div>
                     {status === 'loading' && (
                     <div>

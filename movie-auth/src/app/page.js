@@ -9,7 +9,7 @@ export default function Home() {
       </div>
       <div className='p-5 rounded-md flex justify-center flex-row'>
         {/* Print List of Movies from data base (Name, Author, Date Released) */}
-        {/*<MovieList/>*/}
+        <MovieList/>       
       </div>
     </main>
   )
