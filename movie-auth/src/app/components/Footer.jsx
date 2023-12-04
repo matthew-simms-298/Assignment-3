@@ -4,8 +4,12 @@ import React from "react"
 
 export default function Footer() {
     return (
-        <footer className="h-10 p-20 scroll pb-72 flex justify-center bg-slate-400 dark:bg-slate-700">
+        <footer className="h-10 p-5 pb-96 scroll flex justify-center bg-slate-400 dark:bg-slate-700 border-t">
         <div className="flex flex-row flex-wrap text-md">
+         <img src="\images\logo.png"
+            alt="Company logo of a movie clip sign with the company name on it"
+            className='h-24 w-24'
+        />
             <div className="p-5">
                 <p className="font-bold text-2xl">Internet Movie Rentals Co.</p>
                 <p className="text-s">© 1980-2024</p>
@@ -16,14 +20,16 @@ export default function Footer() {
                 </div>
                 <div>
                     <table>
-                        <tr>
-                            <td>Email:</td>
-                            <td>internetmovies.rental.support@imr.com</td>
-                        </tr>
-                        <tr>
-                            <td>Phone:</td>
-                            <td>+1 (800) 888 - 8888</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Email:</td>
+                                <td>internetmovies.rental.support@imr.com</td>
+                            </tr>
+                            <tr>
+                                <td>Phone:</td>
+                                <td>+1 (800) 888 - 8888</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

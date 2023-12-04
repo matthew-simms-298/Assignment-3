@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import Modal from '../modal/Modal';
+import Overlay from './Overlay';
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -61,21 +61,6 @@ const moviesList = async () => {
     return movie;
   };
 
-  const setHoverTime = (time) => {
-    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 
-                  'September', 'October', 'November', 'December'];
-
-    let convertedDateString = time.replace(/-/g, '/');
-    let formedDate = new Date(convertedDateString);
-    let year = formedDate.getFullYear();
-    let month = months[formedDate.getMonth()];
-    let day = days[formedDate.getDate()];
-
-    let formattedDate = `${day}, ${month} ${formedDate.getDate()}, ${year}`
-    hoverString = formattedDate;
-  }
-
   const handleDeletePost = (id) => {
     axios
       .delete(`/api/posts/${id}`)
@@ -86,10 +71,35 @@ const moviesList = async () => {
       });
   };
 
+  const deleteMovie = (index) => {
+    dummyMovies.splice(index, 1)
+  }
+
 export default function MovieList() {
+    const [movies, setMovies] = useState([]);
+    const editMovie = (id, updatedMovieInfo) => {
+        const movieIndex = movies.findIndex(movie => movie.id === id);
+        if (movieIndex !== -1) {
+            const newMovies = [...movies];
+            newMovies[movieIndex] = updatedMovieInfo;
+            setMovies(newMovies);
+        }
+    };
+    
+    const deleteMovie = (id) => {
+        const deleteMovie = movies.filter(movie => movie.id !== id);
+        setMovies(deleteMovie);
+    };
+{/*
+    const addMovie = (movie) => {
+        const newMovie = { title: movie.title, author: movie.author, releaseDate: movie.releaseDate };
+        setMovies([...movies, newMovie]);
+    };
+*/}
     return (
         <div className='p-10 border rounded-md bg-slate-300 dark:bg-slate-700 dark:text-white w-2/5'>
-                <div className=''>
+                <Overlay state={false} title={'Rental Movie Editor'} body={'ENTER TEXT HERE'}/>
+                <div>
                     {dummyMovies.map((movie, index) => (
                         <div className='p-5 my-5 rounded-md bg-slate-400 dark:bg-slate-500' key={index}>
                             <h2 className='font-bold underline text-lg'>Title:</h2>
@@ -98,12 +108,20 @@ export default function MovieList() {
                             <p className='font-normal no-underline pb-2 pl-2'>{movie[1]}</p>
                             <p className='font-bold pt-2 underline text-lg'>Release Date: </p>
                             <p className='font-normal no-underline pb-2 pl-2'>{movie[2]}</p>
-                            <button className='border text-white hover:bg-white hover:text-black rounded-md p-2 mr-2 pr-4 pl-4 mt-2'
-                                >Edit</button>
-                            <button className='border text-white hover:bg-red-500 hover:text-black rounded-md p-2 mx-2 mt-2'
-                                >Delete</button>
+                            <button 
+                            onClick={() => editMovie(index, asortMovies(movie[0],movie[1],movie[2]))}
+                            className='border text-white hover:bg-white hover:text-black rounded-md p-2 mr-2 pr-4 pl-4 mt-2'
+                             >Edit</button>
+                            <button 
+                            onClick={() => deleteMovie(index)}
+                            className='border text-white hover:bg-red-500 hover:text-black rounded-md p-2 mx-2 mt-2'
+                            >Delete</button>
                         </div>
                     ))}
+                </div>
+                <div className='flex justify-center items-center'>
+                    <button className='border text-white hover:bg-white hover:text-black rounded-md p-2 mr-2 pr-4 pl-4 mt-2'
+                    >Add Movie</button>
                 </div>
         </div>
     );
