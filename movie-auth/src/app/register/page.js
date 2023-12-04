@@ -27,8 +27,8 @@ export default function Register() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-slate-400 dark:bg-slate-700 pb-48">
+        <h2 className="text-center text-2xl font-bold leading-9 tracking-tigh">
           Register your account
         </h2>
 

@@ -3,7 +3,7 @@ import MovieList from './components/MovieList';
 
 export default function Home() {
   return (
-    <main className='bg-slate-400 text-black'>
+    <main className='bg-slate-400 dark:bg-slate-700'>
       <div className='pt-5'>
         <h1 className=' text-3xl text-center'>IMR Movies</h1>
       </div>
