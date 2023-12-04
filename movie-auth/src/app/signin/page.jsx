@@ -31,14 +31,14 @@ export default function SignIn() {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-slate-400 dark:bg-slate-700 pb-32">
+      <h2 className="text-center text-2xl font-bold leading-9 tracking-tight">
         Sign In to Your Account
       </h2>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <form
-          className="space-y-6 bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10"
+          className="space-y-6 bg-slate-300 px-4 py-8 shadow sm:rounded-lg sm:px-10"
           onSubmit={signInUser}
         >
           <div>
@@ -56,7 +56,7 @@ export default function SignIn() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              className="p-2 mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
           </div>
 
@@ -75,7 +75,7 @@ export default function SignIn() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              className="p-2 mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
           </div>
 
