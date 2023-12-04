@@ -9,30 +9,32 @@ export default function Header() {
     return (
         <header>
             <nav>
-            <div className="flex flex-row bg-white text-slate-900 py-5 px-3">
-                <div>
-                    <p className="">Assignment 3</p>
-                </div>
-                {status === 'loading' && (
-                <div>
-                    <p>Loading...</p>
-                </div>
-                )}
-                {status === 'authenticated' && (
-                    <>
-                        <div>
-                            <a href="/signout">Sign Out</a>
-                            <p>{session.user.name}</p>
-                        </div>
-                    </>
-                )}
-                {status === 'unauthenticated' && (
+                <div className="flex flex-row bg-white text-slate-900 py-5 px-3">
                     <div>
-                        <a href="/signin">Sign In</a>
+                        <a href="/" className="px-3 mr-2 p-3
+                        rounded hover:bg-blue-400">IMR Home</a>
                     </div>
-                )}
-                
-            </div>
+                    {status === 'loading' && (
+                    <div>
+                        <p>Loading...</p>
+                    </div>
+                    )}
+                    {status === 'authenticated' && (
+                        <>
+                            <div>
+                                <a href="/signout" className="px-3 mr-2 p-3
+                                rounded hover:bg-blue-400" >Sign Out</a>
+                                <p className="px-3 mr-2" >{session.user.name}</p>
+                            </div>
+                        </>
+                    )}
+                    {status === 'unauthenticated' && (
+                        <div>
+                            <a href="/signin" className="px-3 mr-2 p-3
+                            rounded hover:bg-blue-400">Sign In</a>
+                        </div>
+                    )}
+                </div>
             </nav>
         </header>
     )

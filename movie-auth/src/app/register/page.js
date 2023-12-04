@@ -34,7 +34,7 @@ export default function Register() {
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <form
-            className="space-y-6 bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10"
+            className="space-y-6 bg-slate-300 px-4 py-8 shadow sm:rounded-lg sm:px-10"
             onSubmit={registerUser}
           >
             <div>
@@ -52,7 +52,7 @@ export default function Register() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="p-2 mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               />
             </div>
 
@@ -71,7 +71,7 @@ export default function Register() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="p-2 mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               />
             </div>
 
